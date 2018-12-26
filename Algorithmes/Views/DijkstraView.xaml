@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="Algorithmes.Views.DijkstraView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:models="clr-namespace:Algorithmes.Models"
+             xmlns:local="clr-namespace:Algorithmes.Views"
+             mc:Ignorable="d"              
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.DataContext>
+        <models:DijkstraModel />
+    </UserControl.DataContext>
+        
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <Expander Header="Paramètres d'entrés" IsExpanded="True">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="25"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <local:LinkView x:Name="Link"></local:LinkView>
+
+                <Button Grid.Row="1" Command="{Binding AddHandler}" CommandParameter="{Binding ElementName=Link, Path=DataContext}">Add</Button>
+
+                <ListView Grid.Row="2" Margin="2" MaxHeight="150" ItemsSource="{Binding DataInput}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate DataType="{x:Type models:Link}">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Margin="5,0" Text="{Binding Id1}"></TextBlock>
+                                <TextBlock Margin="5,0" Text="{Binding Id2}"></TextBlock>
+                                <TextBox Margin="5,0" Text="{Binding Poids}"></TextBox>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </Expander>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Stretch">
+            <TextBlock Margin="5"  Text="Point de départ: "></TextBlock>
+            <TextBox Margin="2" Text="{Binding Pstart}"></TextBox>
+            <TextBlock Margin="15,5,5,5" Text="Point de fin: "></TextBlock>
+            <TextBox Margin="2" Text="{Binding Pend}"></TextBox>
+        </StackPanel>
+
+        <Button Grid.Row="2" Command="{Binding RunHandler}">Run</Button>
+
+        <!--<ListView Grid.Row="3" x:Name="ListView"></ListView>-->
+    </Grid>
+</UserControl>
