@@ -120,4 +120,7 @@
   <data name="KEY_DIJKSTRA" xml:space="preserve">
     <value>Dijkstra</value>
   </data>
+  <data name="KEY_PLANNING" xml:space="preserve">
+    <value>Planning</value>
+  </data>
 </root>
