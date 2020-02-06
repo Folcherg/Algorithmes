@@ -14,20 +14,20 @@
     
     <Window.Resources>
         <DataTemplate DataType="{x:Type models:DijkstraModel}">
-            <views:DijkstraView></views:DijkstraView>
+            <views:DijkstraView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type models:OptimisationPlanningModel}">
+            <views:OptimisationPlanningView/>
         </DataTemplate>
     </Window.Resources>
 
     <TabControl ItemsSource="{Binding Algos}">
-        <TabControl.ItemTemplate>
-            <DataTemplate >
-                <TabItem>
-                    <TabItem.Header>
-                        <TextBlock Text="{Binding Name}"></TextBlock>
-                    </TabItem.Header>
-                </TabItem>
-            </DataTemplate>
-        </TabControl.ItemTemplate>
+        <TabControl.ItemContainerStyle>
+            <Style TargetType="TabItem">
+                <Setter Property="Header"  Value="{Binding Name}"/>
+            </Style>
+        </TabControl.ItemContainerStyle>
     </TabControl>
 </Window>
 

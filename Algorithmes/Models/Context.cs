@@ -16,6 +16,7 @@ namespace Algorithmes.Models
             Algos = new List<IAlgoModel>
             {
                 new DijkstraModel(),
+                new OptimisationPlanningModel(),
             };
         }
     }

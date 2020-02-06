@@ -55,15 +55,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Algos\OptimisationPlanning.cs" />
     <Compile Include="Components\RelayCommand.cs" />
     <Compile Include="Models\Context.cs" />
     <Compile Include="Models\IAlgoModel.cs" />
     <Compile Include="Models\Link.cs" />
+    <Compile Include="Models\OptimisationPlanningModel.cs" />
     <Compile Include="Views\DijkstraView.xaml.cs">
       <DependentUpon>DijkstraView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LinkView.xaml.cs">
       <DependentUpon>LinkView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OptimisationPlanningView.xaml.cs">
+      <DependentUpon>OptimisationPlanningView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -84,6 +89,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\LinkView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\OptimisationPlanningView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
